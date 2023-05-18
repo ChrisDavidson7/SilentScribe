@@ -1,4 +1,4 @@
 keras
 imageio 
 tensorflow
-opencv-python
+opencv-python--headless
