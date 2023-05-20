@@ -42,6 +42,8 @@ def load_data(path: str):
     file_name = path.split('\\')[-1].split('.')[0]
     video_path = os.path.join('app','data','speaker1',f'{file_name}.mpg')
     alignment_path = os.path.join('app','data','alignments','s1',f'{file_name}.align')
+    print(video_path)
+    print(alignment_path)
     frames = load_video(video_path) 
     alignments = load_alignments(alignment_path)
     
