@@ -2,8 +2,6 @@
 import streamlit as st
 import os 
 import imageio 
-import tempfile
-import ffmpeg
 
 
 import tensorflow as tf 
@@ -34,21 +32,11 @@ if options:
         st.info('The video below displays the converted video in mp4 format')
         file_path = os.path.join('app', 'data','speaker1', selected_video)
         
-        temp_dir = tempfile.mkdtemp()
-        temp_file_path = os.path.join(temp_dir, 'video.mp4')
-        
-        try:
-            stream = ffmpeg.input(file_path)
-            stream = ffmpeg.output(stream, temp_file_path, vcodec='libx264')
-            ffmpeg.run(stream)
-        
-            # Rendering inside of the app
-            video = open(temp_file_path, 'rb') 
-            video_bytes = video.read() 
-            st.video(video_bytes)
-            
-        except ffmpeg.Error as e:
-            st.error(f"Error occurred during video conversion: {e.stderr}")
+        #Rendering inside the app
+        video = open('file_path', 'rb')
+        video_bytes = video.read()
+        st.video(video_bytes)
+       
 
     with col2: 
         st.info('This is all the machine learning model sees when making a prediction')
