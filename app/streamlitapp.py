@@ -37,6 +37,7 @@ if options:
         video = open(file_path, 'rb')
         video_bytes = video.read()
         st.video(video_bytes)
+        st.text(os.path.join('model','checkpoint'))
        
 
     with col2: 
