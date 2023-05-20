@@ -14,10 +14,10 @@ st.set_page_config(layout='wide')
 # Setup the sideba
 with st.sidebar: 
     st.image('https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png')
-    st.title('LipBuddy')
+    st.title('SilentScribe')
     st.info('This application is originally developed from the LipNet deep learning model.')
 
-st.title('LipNet Full Stack App') 
+st.title('SilentScribe') 
 # Generating a list of options or videos 
 options = os.listdir(os.path.join('app', 'data', 'speaker1'))
 selected_video = st.selectbox('Choose video', options)
@@ -35,7 +35,7 @@ if options:
         col1_file_path = os.path.join('app', 'data', 'speakermp/'f"{selected_video.split('.')[0]}.mp4")
         
         #Rendering inside the app
-        video = open(file_path, 'rb')
+        video = open(col1_file_path, 'rb')
         video_bytes = video.read()
         st.video(video_bytes)
         st.text(col1_file_path)
