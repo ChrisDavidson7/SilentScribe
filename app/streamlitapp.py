@@ -2,7 +2,7 @@
 import streamlit as st
 import os 
 import imageio 
-import tempfile
+
 
 import tensorflow as tf 
 from utils import load_data, num_to_char
@@ -22,6 +22,7 @@ st.title('LipNet Full Stack App')
 options = os.listdir(os.path.join('app', 'data', 'speaker1'))
 selected_video = st.selectbox('Choose video', options)
 
+
 # Generate two columns 
 col1, col2 = st.columns(2)
 
@@ -31,15 +32,12 @@ if options:
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
         file_path = os.path.join('app', 'data','speaker1', selected_video)
-        
-        with tempfile.TemporaryDirectory() as temp_dir:
-            temp_file_path = os.path.join(temp_dir, 'video.mp4')
-            os.system(f'ffmpeg -i {file_path} -vcodec libx264 {temp_file_path} -y')
-  
-            # Rendering inside of the app
-            #video = open(temp_file_path, 'rb') 
-            #video_bytes = video.read() 
-            #st.video(video_bytes)
+
+        #Rendering inside the app
+        video = open(file_path, 'rb')
+        video_bytes = video.read()
+        st.video(video_bytes)
+       
 
     with col2: 
         st.info('This is all the machine learning model sees when making a prediction')

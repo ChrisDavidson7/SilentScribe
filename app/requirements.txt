@@ -1,4 +1,6 @@
+imageio==2.5.0
 keras
 imageio 
 tensorflow
 opencv-python--headless
+
