@@ -39,7 +39,7 @@ if options:
         video = open(col1_file_path, 'rb')
         video_bytes = video.read()
         st.video(video_bytes)
-        st.text(col1_file_path)
+        
        
 
     with col2: 
