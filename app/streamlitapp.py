@@ -31,7 +31,7 @@ if options:
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
         file_path = os.path.join('app', 'data','speaker1', selected_video)
-        
+        st.text(file_path)
         #Rendering inside the app
         video = open('file_path', 'rb')
         video_bytes = video.read()
