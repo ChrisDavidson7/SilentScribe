@@ -35,12 +35,19 @@ if options:
         
         temp_dir = tempfile.mkdtemp()
         temp_file_path = os.path.join(temp_dir, 'video.mp4')
-        ffmpeg.input(file_path).output(temp_file_path, vcodec='libx264').run()
-  
-        # Rendering inside of the app
-        video = open(temp_file_path, 'rb') 
-        video_bytes = video.read() 
-        st.video(video_bytes)
+        
+        try:
+            stream = ffmpeg.input(file_path)
+            stream = ffmpeg.output(stream, temp_file_path, vcodec='libx264')
+            ffmpeg.run(stream)
+        
+            # Rendering inside of the app
+            video = open(temp_file_path, 'rb') 
+            video_bytes = video.read() 
+            st.video(video_bytes)
+            
+        except ffmpeg.Error as e:
+            st.error(f"Error occurred during video conversion: {e.stderr}")
 
     with col2: 
         st.info('This is all the machine learning model sees when making a prediction')
