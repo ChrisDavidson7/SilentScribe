@@ -21,7 +21,7 @@ st.title('LipNet Full Stack App')
 # Generating a list of options or videos 
 options = os.listdir(os.path.join('app', 'data', 'speaker1'))
 selected_video = st.selectbox('Choose video', options)
-st.text(selected_video)
+
 
 # Generate two columns 
 col1, col2 = st.columns(2)
@@ -32,9 +32,9 @@ if options:
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
         file_path = os.path.join('app', 'data','speaker1', selected_video)
-        st.text(file_path)
+
         #Rendering inside the app
-        video = open('file_path', 'rb')
+        video = open(file_path, 'rb')
         video_bytes = video.read()
         st.video(video_bytes)
        
