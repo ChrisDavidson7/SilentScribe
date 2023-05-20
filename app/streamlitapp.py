@@ -16,7 +16,7 @@ with st.sidebar:
     st.image('https://www.onepointltd.com/wp-content/uploads/2020/03/inno2.png')
     st.title('SilentScribe')
     st.info('SilentScribe is inspired by the LipNet deep learning model.')
-    st.info('LipNet is an end-to-end deep learning model designed for lipreading, which aims to transcribe speech solely based on visual information from lip movements. The model consists of three main components: a 3D Convolutional Neural Network (CNN), bidirectional LSTM layers, and a Connectionist Temporal Classification (CTC) layer.')
+    st.info('LipNet is an end-to-end deep learning model designed for lipreading, which aims to transcribe speech solely based on visual information from lip movements. The model consists of three main components: a 3D Convolutional Neural Network (CNN), bidirectional LSTM layers, and a Connectionist Temporal Classification (CTC) loss.')
 
 st.title('SilentScribe') 
 # Generating a list of options or videos 
