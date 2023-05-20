@@ -21,6 +21,7 @@ st.title('LipNet Full Stack App')
 # Generating a list of options or videos 
 options = os.listdir(os.path.join('app', 'data', 'speaker1'))
 selected_video = st.selectbox('Choose video', options)
+st.text(selected_video)
 
 # Generate two columns 
 col1, col2 = st.columns(2)
