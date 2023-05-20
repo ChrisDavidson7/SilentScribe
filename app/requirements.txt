@@ -2,3 +2,4 @@ keras
 imageio 
 tensorflow
 opencv-python--headless
+ffmpeg-python
