@@ -32,14 +32,14 @@ if options:
         st.info('The video below displays the converted video in mp4 format')
         file_path = os.path.join('app', 'data','speaker1', selected_video)
         
-        with tempfile.TemporaryDirectory() as temp_dir:
-            temp_file_path = os.path.join(temp_dir, 'video.mp4')
-            os.system(f'ffmpeg -i {file_path} -vcodec libx264 {temp_file_path} -y')
+        temp_dir = tempfile.mkdtemp()
+        temp_file_path = os.path.join(temp_dir, 'video.mp4')
+        os.system(f'ffmpeg -i {file_path} -vcodec libx264 {temp_file_path} -y')
   
-            # Rendering inside of the app
-            video = open(temp_file_path, 'rb') 
-            video_bytes = video.read() 
-            st.video(video_bytes)
+        # Rendering inside of the app
+        video = open(temp_file_path, 'rb') 
+        video_bytes = video.read() 
+        st.video(video_bytes)
 
     with col2: 
         st.info('This is all the machine learning model sees when making a prediction')
