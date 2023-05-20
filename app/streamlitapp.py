@@ -37,9 +37,9 @@ if options:
             os.system(f'ffmpeg -i {file_path} -vcodec libx264 {temp_file_path} -y')
   
             # Rendering inside of the app
-            #video = open(temp_file_path, 'rb') 
-            #video_bytes = video.read() 
-            #st.video(video_bytes)
+            video = open(temp_file_path, 'rb') 
+            video_bytes = video.read() 
+            st.video(video_bytes)
 
     with col2: 
         st.info('This is all the machine learning model sees when making a prediction')
