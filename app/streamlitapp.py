@@ -3,6 +3,7 @@ import streamlit as st
 import os 
 import imageio 
 import tempfile
+import ffmpeg
 
 import tensorflow as tf 
 from utils import load_data, num_to_char
@@ -34,7 +35,7 @@ if options:
         
         temp_dir = tempfile.mkdtemp()
         temp_file_path = os.path.join(temp_dir, 'video.mp4')
-        os.system(f'ffmpeg -i {file_path} -vcodec libx264 {temp_file_path} -y')
+        ffmpeg.input(file_path).output(temp_file_path, vcodec='libx264').run()
   
         # Rendering inside of the app
         video = open(temp_file_path, 'rb') 
